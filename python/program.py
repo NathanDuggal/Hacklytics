@@ -42,9 +42,9 @@ def note_to_number(note: str, octave: int) -> int:
     return note
 
 
-
-
-array_of_note_numbers = [note_to_number(NOTES[0], OCTAVES[5])]
+array_of_notes = []
+for chord in chord_progression:
+    array_of_notes.extend(chords.from_shorthand(chord))
 
 
 track = 0
