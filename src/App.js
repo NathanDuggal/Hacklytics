@@ -28,20 +28,15 @@ const NUM_BOXES = 28;
 //   return <div id={props.index} className='item' onClick={onClick}>{props.index}</div>
 // }
 
-function select(e) {
-    // access to e.target here
-    console.log("here");
-}
-
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
+        <p className='Text'>
+          Sunny Days, Starry Nights
         </p>
-        <a
+        {/* <a
           id="logo"
           className="App-link"
           href="https://reactjs.org"
@@ -49,8 +44,7 @@ function App() {
           rel="noopener noreferrer"
         >
           Learn React
-        </a>
-        <br></br>
+        </a> */}
         {/* <div className='gridBox'>
           <Box sx={{ flexGrow: 1 }}>
             <Grid container spacing={0} columns={NUM_COLUMNS}>
