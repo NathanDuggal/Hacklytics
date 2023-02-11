@@ -12,6 +12,7 @@ errors = {
 }
 
 
+
 def swap_accidentals(note):
     if note == 'Db':
         return 'C#'
@@ -53,10 +54,6 @@ array_of_notes = []
 for chord in chord_progression:
     array_of_notes.extend(chords.from_shorthand(chord))
 
-array_of_note_numbers = []
-for note in array_of_notes:
-    OCTAVE = 4
-    array_of_note_numbers.append(note_to_number(note, OCTAVE))
 
 track = 0
 channel = 0
@@ -69,8 +66,10 @@ MyMIDI = MIDIFile(1)  # One track, defaults to format 1 (tempo track is created
 # automatically)
 MyMIDI.addTempo(track, time, tempo)
 
-for i, pitch in enumerate(array_of_note_numbers):
-    MyMIDI.addNote(track, channel, pitch, time + i, duration, volume)
+for i, note in enumerate(array_of_note_numbers):
+    pitch,beat = note
+    MyMIDI.addNote(track, channel, pitch, time, beat, volume)
+    time+=beat
 
-with open("pure-edm-fire-arpeggio.mid", "wb") as output_file:
+with open("nathan.mid", "wb") as output_file:
     MyMIDI.writeFile(output_file)

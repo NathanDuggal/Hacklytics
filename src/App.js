@@ -15,9 +15,9 @@ import Col from 'react-bootstrap/Col';
 // import Particles from "react-tsparticles";
 // import { loadFull } from "tsparticles";
 
-const NUM_COLUMNS = 4;
-const COLUMNS_PER_BOX = 1;
-const NUM_BOXES = 28;
+// const NUM_COLUMNS = 4;
+// const COLUMNS_PER_BOX = 1;
+// const NUM_BOXES = 28;
 
 // const Item = function Item(props) {
 //   const onClick = event => {
@@ -52,27 +52,36 @@ export default function App(){
         <p className='Text'>
           Sunny Days, Starry Nights
         </p>
-        <div class="flex-container">
+        {/* <div class="flex-container">
           <div>Weather</div>
           <div>Time</div>
           <div>Location</div>  
-        </div>
-        <Container>
-          <Row>
+        </div> */}
+        <Container className='app-grid'>
+          <Row className='grid-row'>
             <Col md={4}>
-              <h1>Youtube Embed1</h1>
+              <div className='condition-container'>Weather</div>
+            </Col>
+            <Col md={4}>
+              <div className='condition-container'>Time</div>
+            </Col>
+            <Col md={4}>
+              <div className='condition-container'>Location</div>
+            </Col>
+          </Row>
+          <h1>Some songs you might like...</h1>
+          <Row className='grid-row'>
+            <Col md={2}>
               <div className="ratio ratio-16x9">
                 <iframe src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" title="YouTube video" allowfullscreen></iframe>
               </div>
             </Col>
-            <Col md={4}>
-              <h1>Youtube Embed2</h1>
+            <Col md={2}>
               <div className="ratio ratio-16x9">
                 <iframe src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" title="YouTube video" allowfullscreen></iframe>
               </div>
             </Col>
-            <Col md={4}>
-              <h1>Youtube Embed3</h1>
+            <Col md={2}>
               <div className="ratio ratio-16x9">
                 <iframe src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" title="YouTube video" allowfullscreen></iframe>
               </div>
