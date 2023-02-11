@@ -31,8 +31,17 @@ const NUM_BOXES = 28;
 function App() {
   return (
     <div className="App">
+      {/* <header>
+        Spotify Music Maker
+      </header> */}
       <header className="App-header">
+        Spotify Playlist Maker
         <img src={logo} className="App-logo" alt="logo" />
+        <div class="flex-container">
+          <div>Weather</div>
+          <div>Time</div>
+          <div>Location</div>  
+        </div>
         <p className='Text'>
           Sunny Days, Starry Nights
         </p>
@@ -44,7 +53,8 @@ function App() {
           rel="noopener noreferrer"
         >
           Learn React
-        </a> */}
+        </a>
+        <br></br> */}
         {/* <div className='gridBox'>
           <Box sx={{ flexGrow: 1 }}>
             <Grid container spacing={0} columns={NUM_COLUMNS}>
