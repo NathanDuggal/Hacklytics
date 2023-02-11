@@ -11,15 +11,19 @@
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+    /* animation: App-logo-spin infinite 20s linear; */
   }
 }
 
 .App-header {
+  animation-name: backgroundColorPalette;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
   position: relative;
   text-align: center;
   color: white;
-  background-color: #282c34;
+  /* background-color: #282c34; */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -27,6 +31,18 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+@keyframes backgroundColorPalette {
+  0% {
+    background-color: #282c34;;
+  }
+  50% {
+    background-color: #4a5160;
+  }
+  100% {
+    background-color: #282c34;;
+  }
 }
 
 .App-link {
@@ -95,4 +111,8 @@
   text-align: center;
   line-height: 75px;
   font-size: 30px;
+}
+
+.videoBox {
+  width: 33%;
 }
