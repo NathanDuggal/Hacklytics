@@ -44,6 +44,11 @@ def note_to_number(note: str, octave: int) -> int:
     return note
 
 
+def music_maker(motif) : #kot
+
+
+
+
 array_of_notes = []
 for chord in chord_progression:
     array_of_notes.extend(chords.from_shorthand(chord))
