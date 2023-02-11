@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import DateTime from './DateTime';
 // import Grid from './Grid';
 // import Grid from '@mui/material/Grid';
 // import { styled } from '@mui/material/styles';
@@ -41,6 +42,15 @@ export default function App(){
   var rootStyles = getComputedStyle(aroot);
   var color = rootStyles.getPropertyValue('--color');
   aroot.style.setProperty('--color', 'red');
+  
+  const [latitude, setLatitude] = React.useState('');
+  const [longitude, setLongitude] = React.useState('');
+  React.useEffect(() => {
+    navigator.geolocation.getCurrentPosition((position) => {
+      setLatitude(position.coords.latitude);
+      setLongitude(position.coords.longitude);
+    });
+  }, []);
   return (
     <div className="App">
       {/* <header>
@@ -63,7 +73,9 @@ export default function App(){
               <div className='condition-container'>Weather</div>
             </Col>
             <Col md={4}>
-              <div className='condition-container'>Time</div>
+              <div className='condition-container'>
+                <DateTime></DateTime>
+              </div>
             </Col>
             <Col md={4}>
               <div className='condition-container'>Location</div>

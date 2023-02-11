@@ -16,6 +16,11 @@
 }
 
 .App-header {
+
+  background-image: url('logo.svg');
+  background-repeat: no-repeat;
+  /* filter: blur(5px); */
+
   animation-name: backgroundColorPalette;
   animation-duration: 5s;
   animation-iteration-count: infinite;
@@ -36,6 +41,10 @@
 
 :root {
   --color: blue; 
+}
+
+.App-header > * {
+  filter: none;
 }
 
 @keyframes backgroundColorPalette {
