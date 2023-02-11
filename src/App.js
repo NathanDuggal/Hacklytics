@@ -37,17 +37,21 @@ const NUM_BOXES = 28;
 // }
 
 export default function App(){
+  var aroot = document.querySelector(':root');
+  var rootStyles = getComputedStyle(aroot);
+  var color = rootStyles.getPropertyValue('--color');
+  aroot.style.setProperty('--color', 'red');
   return (
     <div className="App">
       {/* <header>
         Spotify Music Maker
       </header> */}
       <header className="App-header">
-        Spotify Playlist Maker
+        <h1 className="title">Spotify Playlist Maker</h1>
         <img src={logo} className="App-logo" alt="logo" />
-        {/* <p className='Text'>
+        <p className='Text'>
           Sunny Days, Starry Nights
-        </p> */}
+        </p>
         <div class="flex-container">
           <div>Weather</div>
           <div>Time</div>
@@ -76,6 +80,7 @@ export default function App(){
             {/* <Col md={{ span: 4, offset: 4 }}>{`md={{ span: 4, offset: 4 }}`}</Col> */}
           </Row>
         </Container>
+
         {/* <a
           id="logo"
           className="App-link"
