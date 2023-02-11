@@ -1,8 +1,6 @@
 from midiutil import MIDIFile
 from mingus.core import chords
 
-chord_progression = ["Cmaj7", "Cmaj7", "Fmaj7", "Gdom7"]
-
 NOTES = ['C', 'C#', 'D', 'Eb', 'E', 'F', 'F#', 'G', 'Ab', 'A', 'Bb', 'B']
 OCTAVES = list(range(11))
 NOTES_IN_OCTAVE = len(NOTES)
@@ -44,14 +42,10 @@ def note_to_number(note: str, octave: int) -> int:
     return note
 
 
-array_of_notes = []
-for chord in chord_progression:
-    array_of_notes.extend(chords.from_shorthand(chord))
 
-array_of_note_numbers = []
-for note in array_of_notes:
-    OCTAVE = 4
-    array_of_note_numbers.append(note_to_number(note, OCTAVE))
+
+array_of_note_numbers = [note_to_number(NOTES[0], OCTAVES[5])]
+
 
 track = 0
 channel = 0
