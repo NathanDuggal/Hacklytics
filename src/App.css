@@ -36,3 +36,26 @@
     transform: rotate(360deg);
   }
 }
+
+.node {
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  outline: 1px solid rgba(144, 175, 175, 0.75);
+  display: inline-block;
+}
+
+.grid {
+  text-align: center;
+}
+
+/* .gridBox {
+
+}  */
+
+.item {
+  background-color: white;
+  color: black;
+  outline-color: black;
+  outline-style: solid;
+}
