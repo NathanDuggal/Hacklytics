@@ -78,6 +78,7 @@ export default function App(){
                </div>
             </Col>
           </Row>
+          <button type="button" id='button'>Click Me!</button>
           <h1>Some songs you might like...</h1>
           <div className='song-label'>
             <p>Current Song</p>

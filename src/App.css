@@ -179,7 +179,14 @@ body {
   bottom: 75px;
 }
 
+#button {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .song-label {
+  position:relative;
+  bottom: 75px;
   display: flex;
   gap: 450px;
 }
