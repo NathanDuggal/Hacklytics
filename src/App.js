@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import DateTime from './DateTime';
 // import Grid from './Grid';
 // import Grid from '@mui/material/Grid';
 // import { styled } from '@mui/material/styles';
@@ -15,9 +16,9 @@ import Col from 'react-bootstrap/Col';
 // import Particles from "react-tsparticles";
 // import { loadFull } from "tsparticles";
 
-const NUM_COLUMNS = 4;
-const COLUMNS_PER_BOX = 1;
-const NUM_BOXES = 28;
+// const NUM_COLUMNS = 4;
+// const COLUMNS_PER_BOX = 1;
+// const NUM_BOXES = 28;
 
 // const Item = function Item(props) {
 //   const onClick = event => {
@@ -37,38 +38,62 @@ const NUM_BOXES = 28;
 // }
 
 export default function App(){
+  var aroot = document.querySelector(':root');
+  var rootStyles = getComputedStyle(aroot);
+  var color = rootStyles.getPropertyValue('--color');
+  aroot.style.setProperty('--color', 'red');
+  
+  const [latitude, setLatitude] = React.useState('');
+  const [longitude, setLongitude] = React.useState('');
+  React.useEffect(() => {
+    navigator.geolocation.getCurrentPosition((position) => {
+      setLatitude(position.coords.latitude);
+      setLongitude(position.coords.longitude);
+    });
+  }, []);
   return (
     <div className="App">
       {/* <header>
         Spotify Music Maker
       </header> */}
       <header className="App-header">
-        Spotify Playlist Maker
+        <h1 className="title">Spotify Playlist Maker</h1>
         <img src={logo} className="App-logo" alt="logo" />
-        {/* <p className='Text'>
+        <p className='Text'>
           Sunny Days, Starry Nights
-        </p> */}
-        <div class="flex-container">
+        </p>
+        {/* <div class="flex-container">
           <div>Weather</div>
           <div>Time</div>
           <div>Location</div>  
-        </div>
-        <Container>
-          <Row>
+        </div> */}
+        <Container className='app-grid'>
+          <Row className='grid-row'>
             <Col md={4}>
-              <h1>Youtube Embed1</h1>
+              <div className='condition-container'>Weather</div>
+            </Col>
+            <Col md={4}>
+              <div className='condition-container'>
+                <DateTime></DateTime>
+              </div>
+            </Col>
+            <Col md={4}>
+              <div className='condition-container'>Location</div>
+            </Col>
+          </Row>
+          <h1>Some songs you might like...</h1>
+          <Row className='grid-row'>
+            <Col md={2}>
               <div className="ratio ratio-16x9">
                 <iframe src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" title="YouTube video" allowfullscreen></iframe>
               </div>
             </Col>
-            <Col md={4}>
-              <h1>Youtube Embed2</h1>
+            <Col md={2}>
               <div className="ratio ratio-16x9">
                 <iframe src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" title="YouTube video" allowfullscreen></iframe>
               </div>
             </Col>
-            <Col md={4}>
-              <h1>Youtube Embed3</h1>
+            <Col md={2}>
               <div className="ratio ratio-16x9">
                 <iframe src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" title="YouTube video" allowfullscreen></iframe>
               </div>
@@ -76,6 +101,7 @@ export default function App(){
             {/* <Col md={{ span: 4, offset: 4 }}>{`md={{ span: 4, offset: 4 }}`}</Col> */}
           </Row>
         </Container>
+
         {/* <a
           id="logo"
           className="App-link"

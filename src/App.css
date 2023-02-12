@@ -16,10 +16,16 @@
 }
 
 .App-header {
+
+  background-image: url('logo.svg');
+  background-repeat: no-repeat;
+  /* filter: blur(5px); */
+
   animation-name: backgroundColorPalette;
   animation-duration: 5s;
   animation-iteration-count: infinite;
   animation-direction: alternate;
+
   position: relative;
   text-align: center;
   color: white;
@@ -33,15 +39,23 @@
   color: white;
 }
 
+:root {
+  --color: blue; 
+}
+
+.App-header > * {
+  filter: none;
+}
+
 @keyframes backgroundColorPalette {
   0% {
-    background-color: #282c34;;
+    background-color: var(--color);
   }
   50% {
     background-color: #4a5160;
   }
   100% {
-    background-color: #282c34;;
+    background-color: #282c34;
   }
 }
 
@@ -92,27 +106,45 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
 .appBody {
   background-color: #282c34;
 }
 
-.flex-container {
-  display: flex;
-  flex-wrap: nowrap;
-  background-color: rgb(92, 166, 240);
-  column-gap: 1px;
+.app-grid {
+  text-align: left;
 }
 
-.flex-container > div {
+.app-grid > * {
+  display: block;
+  margin: 100px 0;
+}
+
+.grid-row {
+  display: flex;
+  flex-wrap: nowrap;
+  /* background-color: rgb(92, 166, 240); */
+  /* column-gap: 1px; */
+  padding: 5px;
+}
+
+.grid-row > * {
+  margin: 10px 0;
+}
+
+.condition-container {
   background-color: #000000;
   min-height: 5vh;
   min-width: 40vh;
-  margin: 5px;
+  /* margin: 5px; */
   text-align: center;
   line-height: 75px;
   font-size: 30px;
+  aspectRatio: 1;
 }
 
-.videoBox {
-  width: 33%;
+.title {
+  font-size: 25px;
+  position:absolute;
+  top: 30px;
 }
