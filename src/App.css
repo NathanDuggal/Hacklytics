@@ -39,18 +39,16 @@ html {
 }
 
 :root {
-  --color: blue; 
+  --color1: #666666; 
+  --color2: #303030;
 }
 
 @keyframes backgroundColorPalette {
   0% {
-    background-color: var(--color);
-  }
-  50% {
-    background-color: #4a5160;
+    background-color: var(--color1);
   }
   100% {
-    background-color: #282c34;
+    background-color: var(--color2);
   }
 }
 
@@ -116,7 +114,7 @@ html {
 
 .app-grid > * {
   display: block;
-  margin: 50px 0;
+  margin: 50px;
   justify-content: center;
 }
 
@@ -167,9 +165,10 @@ html {
 }
 
 .weather {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  position: relative;
+  left: 10px;
   width: 50%;
 }
 
@@ -188,6 +187,7 @@ body {
 }
 
 #button {
+  top: 75px;
   margin-left: auto;
   margin-right:auto;
   position: relative;
@@ -231,20 +231,21 @@ body {
 }
 
 .weather {
-  display: flex;
-  gap: 3px;
   object-fit: cover;
   position: relative;
-  right: 5px;
+  left: 10px;
 }
 
 #weatherOnly {
   position: relative;
-  bottom: 8px;
+  left: 40px;
+  bottom: 50px;
 }
 
 #weatherType {
+  position: relative;
   line-height: 35px;
+  bottom: 60px;
 }
 
 .body {
@@ -252,6 +253,7 @@ body {
   line-height: 40px;
 }
 
-.condition-title {
-  margin-bottom: 20px;
+#weatherid {
+  position: relative;
+  left: 25px;
 }

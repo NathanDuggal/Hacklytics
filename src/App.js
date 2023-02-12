@@ -41,11 +41,6 @@ import react, { useEffect, useState } from "react";
 // }
 
 export default function App(){
-  var aroot = document.querySelector(':root');
-  var rootStyles = getComputedStyle(aroot);
-  var color = rootStyles.getPropertyValue('--color');
-  aroot.style.setProperty('--color', '#5b616c');
-
   const [latitude, setLatitude] = React.useState('');
   const [longitude, setLongitude] = React.useState('');
   React.useEffect(() => {
@@ -56,6 +51,7 @@ export default function App(){
   }, []);
 
   const [weatherType, setWeatherType] = useState("TBD");
+  const [temp, setTemp] = useState("default");
 
   const getWeather = () => {
     fetch("http://127.0.0.1:8004/getWeather")
@@ -64,11 +60,32 @@ export default function App(){
         const jsonData = JSON.parse(data.data);
         console.log(jsonData);
         setWeatherType(jsonData.conditions[0]);
+        // setTemp(jsonData.temp[0]);
+        const temp = Number(jsonData.temp[0]);
+        
+        if (temp < 20) {
+          root.style.setProperty('--color1','#0fd7ff');
+          root.style.setProperty('--color2','#0f8afc');
+        } else if (temp >= 20 && temp < 50) {
+          root.style.setProperty('--color1','#0f8afc');
+          root.style.setProperty('--color2','#2ff7ed');
+        } else if (temp >= 50 && temp < 70) {
+          root.style.setProperty('--color1','#a6fff0');
+          root.style.setProperty('--color2','#fbffa6');
+        } else if(temp >= 70 && temp < 90) {
+          root.style.setProperty('--color1','#fbffa6');
+          root.style.setProperty('--color2','#ffcaa6');
+        } else {
+          root.style.setProperty('--color1','#ffcaa6');         
+          root.style.setProperty('--color2','#fa5050');
+        }
       })
       .catch(() => {
         setWeatherType("ERROR");
       });
   };
+  
+  var root = document.querySelector(':root');
   
   return (
     <div className="App">
@@ -93,8 +110,8 @@ export default function App(){
             <Col md={2}>
               <div className='condition-container'>
                 <div className='weather'>
-                  <p className='condition-title'>Weather</p>
-                  <img src={weatherIcon} className="weather"/>
+                  <p className='condition-title' id='weatherid'>Weather</p>
+                  <img src={weatherIcon} id='weatherOnly'className='weather'/>
                 </div>
                 <p id='weatherType'>{weatherType}</p>
                 
@@ -124,9 +141,6 @@ export default function App(){
             </div>
         </Container>
       </header>
-      <body className='body'>
-        <div className = 'body'></div>
-      </body>
     </div>
   );
 }
