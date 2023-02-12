@@ -165,7 +165,7 @@ export default function App(){
                </div>
             </Col>
             <Col md={2}>
-              <button type="button" className='button' onClick={updateData}>Update</button>
+              <button type="menuButton" className='button menuButton' onClick={updateData}>Update</button>
             </Col>
           </Row>
           <Row>
@@ -175,11 +175,11 @@ export default function App(){
               </div>
             </Col>
             <Col className='playlist-selector' md={4}>
-              <button id="song0" type="button" className='button' onClick={() => {setVideo(0)}}>Update</button>
-              <button id="song1" type="button" className='button' onClick={() => {setVideo(1)}}>Update</button>
-              <button id="song2" type="button" className='button' onClick={() => {setVideo(2)}}>Update</button>
-              <button id="song3" type="button" className='button' onClick={() => {setVideo(3)}}>Update</button>
-              <button id="song4" type="button" className='button' onClick={() => {setVideo(4)}}>Update</button>
+              <button id="song0" type="button" className='button' onClick={() => {setVideo(0)}}>Press Update to Load Songs</button>
+              <button id="song1" type="button" className='button' onClick={() => {setVideo(1)}}></button>
+              <button id="song2" type="button" className='button' onClick={() => {setVideo(2)}}></button>
+              <button id="song3" type="button" className='button' onClick={() => {setVideo(3)}}></button>
+              <button id="song4" type="button" className='button' onClick={() => {setVideo(4)}}></button>
             </Col>
           </Row>
           <h1 className='songs-title'> Made with ♥ by Bob...</h1>
