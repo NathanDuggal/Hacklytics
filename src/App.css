@@ -111,11 +111,12 @@ html {
   text-align: left;
   position: relative;
   top: 100px;
+  text-align: center;
 }
 
 .app-grid > * {
   display: block;
-  margin: 100px 0;
+  margin: 50px 0;
   justify-content: center;
 }
 
@@ -158,10 +159,11 @@ html {
 }
 
 .title {
-  font-family: Helvetica, sans-serif;
-  font-size: 35px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 60px;
   position:absolute;
   top: 30px;
+  margin-bottom: 50px;
 }
 
 .weather {
@@ -178,6 +180,7 @@ html {
 .place {
   font-size: 1em;
   text-align: center;
+  line-height: 30px;
 }
 
 body {
@@ -188,7 +191,9 @@ body {
   margin-left: auto;
   margin-right:auto;
   position: relative;
-  bottom: 50px;
+  display: inline-block;
+  margin: 0 auto;
+  /* bottom: 50px; */
   background: transparent;
   color: #F0F0F0;
   border: 2px solid #F0F0F0;
@@ -222,6 +227,7 @@ body {
 .current-song {
   position: relative;
   top: 5px;
+  margin-bottom: 0px;
 }
 
 .weather {
@@ -243,4 +249,9 @@ body {
 
 .body {
   background-color: #000000;
+  line-height: 40px;
+}
+
+.condition-title {
+  margin-bottom: 20px;
 }
