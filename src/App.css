@@ -200,6 +200,11 @@ body {
   background-color: #505050;
 }
 
+.menuButton{ 
+  width: 250px !important;
+  border-radius: 200px !important;
+}
+
 .button {
   margin-left: auto;
   margin-right:auto;
@@ -207,7 +212,7 @@ body {
   display: inline-block;
   margin: 0 auto;
   position: relative;
-  top: 20px;
+  top: 0px;
   /* bottom: 50px; */
   background: transparent;
   color: rgb(98, 14, 53);
@@ -221,6 +226,7 @@ body {
   -webkit-transition: all 0.4s;
   -moz-transition: all 0.4s;
   transition: all 0.4s;
+  width: 550px;
 
   box-shadow: 5px 10px 8px #b391cf;
 }
@@ -228,6 +234,7 @@ body {
 .button:hover, button:focus {
   background-color: white;
   color: #333333;
+  
 }
 
 .label {
@@ -274,6 +281,7 @@ body {
 
 .playlist-preview {
   text-align: left;
+  margin: 0;
 }
 
 .playlist-selector {
