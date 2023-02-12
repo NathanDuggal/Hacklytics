@@ -135,7 +135,7 @@ html {
 .condition-container {
   /* background-color: #2d2c2c; */
   background: transparent;
-  box-shadow: 5px 10px 8px #000000;
+  box-shadow: 5px 10px 8px #7b7b7b;
   border-style: solid;
   border-color: rgb(31, 31, 31);
   border-radius: 25px;
@@ -198,9 +198,10 @@ body {
   color: #F0F0F0;
   border: 2px solid #F0F0F0;
   font-size: 15px;
+  text-transform: uppercase;
   letter-spacing: 2px;
   padding: 20px 75px;
-  text-transform: uppercase;
+
   cursor: pointer;
   -webkit-transition: all 0.4s;
   -moz-transition: all 0.4s;
@@ -256,4 +257,9 @@ body {
 #weatherid {
   position: relative;
   left: 25px;
+}
+
+.condition-title {
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
