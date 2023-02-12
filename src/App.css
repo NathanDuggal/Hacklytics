@@ -137,8 +137,8 @@ html {
   border-style: solid;
   border-color: white;
   border-radius: 25px;
-  min-height: 10vh;
-  min-width: 10vh;
+  min-height: 200px;
+  min-width: 200px;
   max-width: 30vh;
   max-height: 30vh;
   /* margin-top: 0;
@@ -150,6 +150,8 @@ html {
   line-height: 75px;
   font-size: 4vh;
   aspect-ratio: 1;
+  border-style: solid;
+  border-color: white;
 }
 
 .title {
@@ -179,19 +181,50 @@ body {
   background-color: #505050;
 }
 
-.current-song {
-  position: relative;
-  bottom: 75px;
-}
-
 #button {
   margin-left: auto;
-  margin-right: auto;
+  margin-right:auto;
+  position: relative;
+  bottom: 50px;
+  background: transparent;
+  color: #F0F0F0;
+  border: 2px solid #F0F0F0;
+  font-size: 15px;
+  letter-spacing: 2px;
+  padding: 20px 75px;
+  text-transform: uppercase;
+  cursor: pointer;
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+#button:hover, button:focus {
+  background-color: white;
+  color: #333333;
+}
+
+.label {
+  position:relative;
+  bottom: 100px;
 }
 
 .song-label {
   position:relative;
-  bottom: 75px;
   display: flex;
   gap: 450px;
+  min-width: 415px;
+}
+
+.current-song {
+  position: relative;
+  top: 5px;
+}
+
+.weather {
+  display: flex;
+}
+
+#weatherType {
+  line-height: 40px;
 }

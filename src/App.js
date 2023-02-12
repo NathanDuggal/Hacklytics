@@ -86,9 +86,12 @@ export default function App(){
           <Row className='grid-row justify-content-md-center'>
             <Col md={2}>
               <div className='condition-container'>
-                <p>Weather</p>
-                <p>{weatherType}</p>
-                <img src={weatherIcon} className="weather"/>
+                <div className='weather'>
+                  <p>Weather</p>
+                  <img src={weatherIcon} className="weather"/>
+                </div>
+                <p id='weatherType'>{weatherType}</p>
+                
               </div>
             </Col>
             <Col md={2}>
@@ -105,13 +108,11 @@ export default function App(){
             </Col>
           </Row>
           <button type="button" id='button' onClick={getWeather}>Update Weather</button>
-          <h1>Some songs you might like...</h1>
-          <div className='song-label'>
-            <p>Current Song</p>
-            <p>Playlist</p>
-          </div>
-          <div className='current-song'>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PL4jEyp32wP5sa2Y_rotcEZnVjCTuqqKwE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          <div className='label'>
+            <h1>Some songs you might like...</h1>
+            <div className='current-song'>
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PL4jEyp32wP5sa2Y_rotcEZnVjCTuqqKwE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
           </div>
           <Row className='grid-row'>
             <Col md={2}>
