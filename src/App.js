@@ -44,6 +44,30 @@ export default function App(){
   var rootStyles = getComputedStyle(aroot);
   var color = rootStyles.getPropertyValue('--color');
   aroot.style.setProperty('--color', '#5b616c');
+
+  const [latitude, setLatitude] = React.useState('');
+  const [longitude, setLongitude] = React.useState('');
+  React.useEffect(() => {
+    navigator.geolocation.getCurrentPosition((position) => {
+      setLatitude(position.coords.latitude);
+      setLongitude(position.coords.longitude);
+    });
+  }, []);
+
+  const [weatherType, setWeatherType] = useState("TBD");
+
+  const getWeather = () => {
+    fetch("http://127.0.0.1:8004/getWeather")
+      .then((response) => response.json())
+      .then((data) => {
+        const jsonData = JSON.parse(data.data);
+        // console.log(jsonData);
+        setWeatherType(jsonData.conditions[0]);
+      })
+      .catch(() => {
+        setWeatherType("ERROR");
+      });
+  };
   
   return (
     <div className="App">
@@ -59,9 +83,11 @@ export default function App(){
           <div>Location</div>  
         </div> */}
         <Container className='app-grid'>
-          <Row className='grid-row'>
+          <Row className='grid-row justify-content-md-center'>
             <Col md={2}>
               <div className='condition-container'>
+                <p>Weather</p>
+                <p>{weatherType}</p>
                 <img src={weatherIcon} className="weather"/>
               </div>
             </Col>
@@ -78,7 +104,7 @@ export default function App(){
                </div>
             </Col>
           </Row>
-          <button type="button" id='button'>Click Me!</button>
+          <button type="button" id='button' onClick={getWeather}>Update Weather</button>
           <h1>Some songs you might like...</h1>
           <div className='song-label'>
             <p>Current Song</p>
