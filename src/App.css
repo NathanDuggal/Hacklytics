@@ -227,7 +227,7 @@ body {
 .menuButton:hover, button:focus {
   box-shadow: white !important;
   color:#b391cf !important;
-  background-color: #fce8ef !important;
+  background-color: #fcf1e8 !important;
   transition: 0.3s;
   
 }
