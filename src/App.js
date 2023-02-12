@@ -104,11 +104,12 @@ export default function App(){
       });
   };
 
-  const setVideo = () => {
-    console.log("here")
+  const setVideo = (val) => {
+    // console.log("here")
     // console.log(this.id);
     // console.log(val);
-    // console.log(videos[val]);
+    console.log(videos[val]);
+    document.getElementById('video-window').src = "https://youtu.be/" + videos[val];
   }
   
   var root = document.querySelector(':root');
@@ -165,11 +166,11 @@ export default function App(){
               </div>
             </Col>
             <Col className='playlist-selector' md={4}>
-              <button id='0'type="button" className='button' onClick={setVideo}>Update</button>
-              <button type="button" className='button' onClick={setVideo}>Update</button>
-              <button type="button" className='button' onClick={setVideo}>Update</button>
-              <button type="button" className='button' onClick={setVideo}>Update</button>
-              <button type="button" className='button' onClick={setVideo}>Update</button>
+              <button type="button" className='button' onClick={() => {setVideo(0)}}>Update</button>
+              <button type="button" className='button' onClick={() => {setVideo(1)}}>Update</button>
+              <button type="button" className='button' onClick={() => {setVideo(2)}}>Update</button>
+              <button type="button" className='button' onClick={() => {setVideo(3)}}>Update</button>
+              <button type="button" className='button' onClick={() => {setVideo(4)}}>Update</button>
             </Col>
           </Row>
           <h1 className='songs-title'> Made with ♥ by Bob...</h1>
