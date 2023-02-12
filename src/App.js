@@ -1,5 +1,5 @@
 import logo from './logo.svg';
-import weatherIcon from './PartialClouds.png'
+import weatherIcon from './RedPartialCloud.png'
 import './App.css';
 import * as React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -9,39 +9,6 @@ import Col from 'react-bootstrap/Col';
 import DateTime from './DateTime';
 import react, { useEffect, useState } from "react";
 import { cardActionsClasses } from '@mui/material';
-
-// import Grid from './Grid';
-// import Grid from '@mui/material/Grid';
-// import { styled } from '@mui/material/styles';
-// import Box from '@mui/material/Box';
-// import Paper from '@mui/material/Paper';
-
-// import { useCallback } from "react";
-// import Particles from "react-tsparticles";
-// import { loadFull } from "tsparticles";
-
-// const NUM_COLUMNS = 4;
-// const COLUMNS_PER_BOX = 1;
-// const NUM_BOXES = 28;
-
-// const Item = function Item(props) {
-//   const onClick = event => {
-//     console.log(props.index);
-//     let thisItem = document.getElementById(String(props.index));
-//     console.log(thisItem.style.backgroundColor);
-//     let toggle = String(thisItem.style.backgroundColor) === "rgb(255, 255, 255)" || String(thisItem.style.backgroundColor) == "";
-//     for (let i = Number(props.index) % NUM_COLUMNS; i < NUM_BOXES; i += NUM_COLUMNS) {
-//       document.getElementById(String(i)).style.backgroundColor = "#FFFFFF";
-//     }
-//     if (toggle) {
-//       thisItem.style.backgroundColor = "#000000"; 
-//     }
-//   }
-
-//   return <div id={props.index} className='item' onClick={onClick}>{props.index}</div>
-// }
-
-// console.log("API" + process.env.YOUTUBE_API_KEY);
 
 var videos = [];
 
@@ -57,7 +24,6 @@ export default function App(){
 
   const [weatherType, setWeatherType] = useState("T.B.D.");
   const [temp, setTemp] = useState("default");
-  // const [videos, setVideos] = useState("TBD")
 
   const updateData = () => {
     console.log("Fetching");
@@ -67,8 +33,6 @@ export default function App(){
         const weatherData = JSON.parse(data.weather);
         console.log(data);
         setWeatherType(weatherData.conditions[0]);
-        // setTemp(jsonData.temp[0]);
-        // const temp = Number(jsonData.temp[0]);
         
         if (temp < 20) {
           root.style.setProperty('--color1','#c2c3ff'); //blue white purple
@@ -103,7 +67,6 @@ export default function App(){
           document.getElementById("song" + i).innerHTML = nameData[i];
         }
 
-        // setVideos(videoData);
         videos = videoData;
         console.log(videos);
       })
@@ -113,9 +76,6 @@ export default function App(){
   };
 
   const setVideo = (val) => {
-    // console.log("here")
-    // console.log(this.id);
-    // console.log(val);
     console.log(videos);
     document.getElementById('video-window').src = "https://www.youtube.com/embed/" + videos[val];
     console.log("https://www.youtube.com/embed/" + videos[val]);
@@ -125,10 +85,6 @@ export default function App(){
   
   return (
     <div className="App">
-      {/* <header>
-        Spotify Music Maker
-      </header> */}
-      
       <header className="App-header">
         <link rel="preconnect" href="https://fonts.googleapis.com"></link>
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin></link>
@@ -140,14 +96,14 @@ export default function App(){
         <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet"></link>
         <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;800&display=swap" rel="stylesheet"></link>
 
-        <h1 className="title" >staryeast</h1> 
+        <h1 className="title">Starry East</h1> 
         <br></br>
         <Container className='app-grid'>
           <Row className='grid-row justify-content-md-center'>
             <Col md={1}>
               <div className='condition-container'>
                   <p className='condition-title' id='weatherid'>Weather</p>
-                  <img src={weatherIcon} id='weatherOnly'className='weather'/>
+                  <img  src={weatherIcon} id='weatherOnly'className='weather'/>
                 <p id='weatherType'>{weatherType}</p>
               </div>
             </Col>
