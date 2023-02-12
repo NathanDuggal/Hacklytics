@@ -64,20 +64,20 @@ export default function App(){
         const temp = Number(jsonData.temp[0]);
         
         if (temp < 20) {
-          root.style.setProperty('--color1','#0fd7ff');
-          root.style.setProperty('--color2','#0f8afc');
+          root.style.setProperty('--color1','#c2c3ff'); //blue white purple
+          root.style.setProperty('--color2','#c2d6ff'); //blue more green
         } else if (temp >= 20 && temp < 50) {
-          root.style.setProperty('--color1','#0f8afc');
-          root.style.setProperty('--color2','#2ff7ed');
+          root.style.setProperty('--color1','#b2dcf7'); //blue more more green
+          root.style.setProperty('--color2','#b2eff7'); //blue more more more green
         } else if (temp >= 50 && temp < 70) {
-          root.style.setProperty('--color1','#a6fff0');
-          root.style.setProperty('--color2','#fbffa6');
+          root.style.setProperty('--color1','#ccfcea'); //green
+          root.style.setProperty('--color2','#ccfcd2'); //yellow green
         } else if(temp >= 70 && temp < 90) {
-          root.style.setProperty('--color1','#fbffa6');
-          root.style.setProperty('--color2','#ffcaa6');
+          root.style.setProperty('--color1','#eafccc'); //yellow
+          root.style.setProperty('--color2','#ffdebd'); //orange
         } else {
-          root.style.setProperty('--color1','#ffcaa6');         
-          root.style.setProperty('--color2','#fa5050');
+          root.style.setProperty('--color1','#ffbdbd'); //red orange     
+          root.style.setProperty('--color2','#fa96af'); //red pink
         }
       })
       .catch(() => {
@@ -92,12 +92,17 @@ export default function App(){
       {/* <header>
         Spotify Music Maker
       </header> */}
+      
       <header className="App-header">
         <link rel="preconnect" href="https://fonts.googleapis.com"></link>
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin></link>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet"></link>
-        
-        <h1 className="title">Starry Nights & Sunny Days</h1>
+        <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet"></link>
+
+
+        <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet"></link>
+
+        <h1 className="title" >staryeast</h1>
         <br></br>
         {/* <img src={logo} className="App-logo" alt="logo" /> */}
         {/* <div class="flex-container">

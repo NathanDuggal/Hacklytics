@@ -27,20 +27,20 @@ html {
   animation-direction: alternate;
   position: relative;
   text-align: center;
-  color:white;
+  color:rgb(98, 14, 53);
   /* background-color: #282c34; */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: rgb(98, 14, 53);
+  font-family: 'Nanum Gothic', sans-serif;
 }
 
 :root {
-  --color1: #666666; 
-  --color2: #303030;
+  --color1: #fdc9ff; 
+  --color2: #cbc9ff;
 }
 
 @keyframes backgroundColorPalette {
@@ -68,8 +68,8 @@ html {
 .node {
   width: 20px;
   height: 20px;
-  background-color: white;
-  outline: 1px solid rgba(144, 175, 175, 0.75);
+  background-color: rgb(98, 14, 53);
+  outline: 1px solid rgba(97, 147, 255, 0.75);
   display: inline-block;
 }
 
@@ -83,14 +83,14 @@ html {
 
 .item {
   background-color: rgb(255, 255, 255);
-  color: black;
-  outline-color: black;
+  color: rgb(255, 103, 103);
+  outline-color: rgb(235, 31, 31);
   outline-style: solid;
   cursor: pointer;
 }
 
 .item:hover {
-  box-shadow: 0px 0px 5px "#C2C2C2";
+  box-shadow: 0px 0px 5px "#b391cf";
 }
 
 .Text {
@@ -101,7 +101,7 @@ html {
 }
 
 .appBody {
-  background-color: #282c34;
+  background-color: #b391cf;
 }
 
 .app-grid {
@@ -135,7 +135,7 @@ html {
 .condition-container {
   /* background-color: #2d2c2c; */
   background: transparent;
-  box-shadow: 5px 10px 8px #000000;
+  box-shadow: 5px 10px 8px #b391cf;
   border-style: solid;
   border-color: rgb(31, 31, 31);
   border-radius: 25px;
@@ -150,17 +150,19 @@ html {
   /* margin: 5px; */
   text-align: center;
   line-height: 75px;
-  font-size: 25px;;
+  font-size: 25px;
   aspect-ratio: 1;
   border-style: solid;
   border-color: white;
 }
 
 .title {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Nanum Gothic', sans-serif;
   font-size: 60px;
   position:absolute;
   top: 30px;
+  text-align: left !important;
+  align-items: left !important;
   margin-bottom: 50px;
 }
 
@@ -195,7 +197,7 @@ body {
   margin: 0 auto;
   /* bottom: 50px; */
   background: transparent;
-  color: #F0F0F0;
+  color: rgb(98, 14, 53);
   border: 2px solid #F0F0F0;
   font-size: 15px;
   letter-spacing: 2px;
