@@ -61,7 +61,7 @@ export default function App(){
       .then((response) => response.json())
       .then((data) => {
         const jsonData = JSON.parse(data.data);
-        // console.log(jsonData);
+        console.log(jsonData);
         setWeatherType(jsonData.conditions[0]);
       })
       .catch(() => {
@@ -75,7 +75,12 @@ export default function App(){
         Spotify Music Maker
       </header> */}
       <header className="App-header">
-        <h1 className="title">Spotify Playlist Maker</h1>
+        <link rel="preconnect" href="https://fonts.googleapis.com"></link>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin></link>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet"></link>
+        
+        <h1 className="title">Starry Nights & Sunny Days</h1>
+        <br></br>
         {/* <img src={logo} className="App-logo" alt="logo" /> */}
         {/* <div class="flex-container">
           <div>Weather</div>
@@ -87,7 +92,7 @@ export default function App(){
             <Col md={2}>
               <div className='condition-container'>
                 <div className='weather'>
-                  <p>Weather</p>
+                  <p className='condition-title'>Weather</p>
                   <img src={weatherIcon} className="weather"/>
                 </div>
                 <p id='weatherType'>{weatherType}</p>
@@ -96,65 +101,27 @@ export default function App(){
             </Col>
             <Col md={2}>
               <div className='condition-container'>
-                <p>Time</p>
+                <p className='condition-title'>Time</p>
                 <DateTime className='time'></DateTime>
               </div>
             </Col>
             <Col md={2}>
                <div className='condition-container'>
-                <p>Location</p>
-                <p className='place'>Atlanta, Ga</p>
+                <p className='condition-title'>Location</p>
+                <p className='place'>Atlanta</p>
+                <p className='place'>GA</p>
                </div>
             </Col>
+            <Col md={2}>
+              <button type="button" id='button' onClick={getWeather}>Update</button>
+            </Col>
           </Row>
-          <button type="button" id='button' onClick={getWeather}>Update Weather</button>
-          <div className='label'>
-            <h1>Some songs you might like...</h1>
+          {/* <div className='label'> */}
+            <h1 className='songs-title'>Some songs you might like...</h1>
             <div className='current-song'>
               <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PL4jEyp32wP5sa2Y_rotcEZnVjCTuqqKwE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </div>
-          </div>
-          <Row className='grid-row'>
-            <Col md={2}>
-              <div className="ratio ratio-16x9">
-                <iframe src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" title="YouTube video" allowfullscreen></iframe>
-              </div>
-            </Col>
-            <Col md={2}>
-              <div className="ratio ratio-16x9">
-                <iframe src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" title="YouTube video" allowfullscreen></iframe>
-              </div>
-            </Col>
-            <Col md={2}>
-              <div className="ratio ratio-16x9">
-                <iframe src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" title="YouTube video" allowfullscreen></iframe>
-              </div>
-            </Col>
-            {/* <Col md={{ span: 4, offset: 4 }}>{`md={{ span: 4, offset: 4 }}`}</Col> */}
-          </Row>
         </Container>
-
-        {/* <a
-          id="logo"
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <br></br> */}
-        {/* <div className='gridBox'>
-          <Box sx={{ flexGrow: 1 }}>
-            <Grid container spacing={0} columns={NUM_COLUMNS}>
-              {Array.from(Array(NUM_BOXES)).map((_, index) => (
-                <Grid item xs={COLUMNS_PER_BOX} key={index}>
-                  <Item index={index}></Item>
-                </Grid>
-              ))}
-            </Grid>
-          </Box>
-        </div> */}
       </header>
       <body>
         <div className = 'body'></div>
