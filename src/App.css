@@ -39,8 +39,8 @@ html {
 }
 
 :root {
-  --color1: #fdc9ff; 
-  --color2: #cbc9ff;
+  --color1: #c2ccfc; 
+  --color2: #c2ddfc;
 }
 
 @keyframes backgroundColorPalette {
@@ -150,19 +150,29 @@ html {
   /* margin: 5px; */
   text-align: center;
   line-height: 75px;
-  font-size: 25px;
+  font-size: 24px;
   aspect-ratio: 1;
   border-style: solid;
   border-color: #fcf1e8;
 }
 
+.condition-title-weather {
+  font-size: 17px !important;
+  margin-left: 10px !important;
+  margin-right: 10px !important;
+  margin-bottom: 10px !important;
+}
+
+
+
 .title {
   font-family: 'Nanum Gothic', sans-serif;
-  font-size: 60px;
+  font-size: 30px;
   position:absolute;
   top: 30px;
   text-align: left !important;
   align-items: left !important;
+  font-weight: 700;
   margin-bottom: 50px;
   margin-left: 70px;
 }
@@ -205,11 +215,21 @@ body {
   font-weight: 800 !important;
   width: 250px !important;
   border-radius: 200px !important;
-  color:#fcf1e8 !important;
+  color:white !important;
   background-color: #ae84bd !important;
   border: none !important;
   margin-top: 50px !important;
   position: relative !important;
+  box-shadow: #fce8ef !important;
+  margin-left: 0px !important;
+}
+
+.menuButton:hover, button:focus {
+  box-shadow: white !important;
+  color:#b391cf !important;
+  background-color: #fce8ef !important;
+  transition: 0.3s;
+  
 }
 
 .button {
@@ -288,12 +308,15 @@ body {
 
 .playlist-preview {
   text-align: left;
+  margin-left:0px;
+  margin-right:40px;
 }
 
 .playlist-selector {
   padding-top: 20px;
   position: relative;
-  left: 25px;
+  margin-left: 30px;
+  margin-right: 70px;
 }
 
 .condition-title {

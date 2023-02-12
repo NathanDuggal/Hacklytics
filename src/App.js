@@ -47,8 +47,8 @@ export default function App(){
           root.style.setProperty('--color1','#eafccc'); //yellow
           root.style.setProperty('--color2','#ffdebd'); //orange
         } else {
-          root.style.setProperty('--color1','#ffbdbd'); //red orange     
-          root.style.setProperty('--color2','#fa96af'); //red pink
+          root.style.setProperty('--color1','#fdc9ff'); //blue for else
+          root.style.setProperty('--color2','#cbc9ff'); 
         }
       })
       .catch(() => {
@@ -96,7 +96,7 @@ export default function App(){
         <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet"></link>
         <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;800&display=swap" rel="stylesheet"></link>
 
-        <h1 className="title">Starry East</h1> 
+        <h1 className="title">staryeast 🎶</h1> 
         <br></br>
         <Container className='app-grid'>
           <Row className='grid-row justify-content-md-center'>
@@ -104,7 +104,7 @@ export default function App(){
               <div className='condition-container'>
                   <p className='condition-title' id='weatherid'>Weather</p>
                   <img  src={weatherIcon} id='weatherOnly'className='weather'/>
-                <p id='weatherType'>{weatherType}</p>
+                <p className='condition-title-weather' id='weatherType'>{weatherType}</p>
               </div>
             </Col>
             <Col md={1}>
@@ -127,7 +127,7 @@ export default function App(){
           <Row>
             <Col className='playlist-preview' md={5}>
               <div className='current-song'>
-                <iframe id="video-window" width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PL4jEyp32wP5sa2Y_rotcEZnVjCTuqqKwE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <iframe id="video-window" width="600" height="350" src="https://www.youtube.com/embed/videoseries?list=PL4jEyp32wP5sa2Y_rotcEZnVjCTuqqKwE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
               </div>
             </Col>
             <Col className='playlist-selector' md={4}>
