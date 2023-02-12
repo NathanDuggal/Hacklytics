@@ -198,8 +198,15 @@ body {
 }
 
 .menuButton{ 
+  font-size: large !important;
+  font-weight: 800 !important;
   width: 250px !important;
   border-radius: 200px !important;
+  color:#fcf1e8 !important;
+  background-color: #ae84bd !important;
+  border: none !important;
+  margin-top: 50px !important;
+  position: relative !important;
 }
 
 .button {
@@ -278,7 +285,6 @@ body {
 
 .playlist-preview {
   text-align: left;
-  margin: 0;
 }
 
 .playlist-selector {
