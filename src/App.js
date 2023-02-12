@@ -43,6 +43,8 @@ import { cardActionsClasses } from '@mui/material';
 
 // console.log("API" + process.env.YOUTUBE_API_KEY);
 
+var videos = [];
+
 export default function App(){
   const [latitude, setLatitude] = React.useState('');
   const [longitude, setLongitude] = React.useState('');
@@ -56,7 +58,6 @@ export default function App(){
   const [weatherType, setWeatherType] = useState("T.B.D.");
   const [temp, setTemp] = useState("default");
   // const [videos, setVideos] = useState("TBD")
-  var videos = [];
 
   const updateData = () => {
     console.log("Fetching");
@@ -93,8 +94,15 @@ export default function App(){
     fetch("http://127.0.0.1:8004/getVideos")
       .then((response) => response.json())
       .then((data) => {
-        console.log(data.videos);
-        const videoData = data.videos;
+        console.log(data.names);
+        const videoData = data[0].videos;
+        const nameData = data[1].names;
+
+        for(var i=0; i < nameData.length; i++) {
+          console.log(nameData[i]);
+          document.getElementById("song" + i).innerHTML = nameData[i];
+        }
+
         // setVideos(videoData);
         videos = videoData;
         console.log(videos);
@@ -108,8 +116,9 @@ export default function App(){
     // console.log("here")
     // console.log(this.id);
     // console.log(val);
-    console.log(videos[val]);
-    document.getElementById('video-window').src = "https://youtu.be/" + videos[val];
+    console.log(videos);
+    document.getElementById('video-window').src = "https://www.youtube.com/embed/" + videos[val];
+    console.log("https://www.youtube.com/embed/" + videos[val]);
   }
   
   var root = document.querySelector(':root');
@@ -166,11 +175,11 @@ export default function App(){
               </div>
             </Col>
             <Col className='playlist-selector' md={4}>
-              <button type="button" className='button' onClick={() => {setVideo(0)}}>Update</button>
-              <button type="button" className='button' onClick={() => {setVideo(1)}}>Update</button>
-              <button type="button" className='button' onClick={() => {setVideo(2)}}>Update</button>
-              <button type="button" className='button' onClick={() => {setVideo(3)}}>Update</button>
-              <button type="button" className='button' onClick={() => {setVideo(4)}}>Update</button>
+              <button id="song0" type="button" className='button' onClick={() => {setVideo(0)}}>Update</button>
+              <button id="song1" type="button" className='button' onClick={() => {setVideo(1)}}>Update</button>
+              <button id="song2" type="button" className='button' onClick={() => {setVideo(2)}}>Update</button>
+              <button id="song3" type="button" className='button' onClick={() => {setVideo(3)}}>Update</button>
+              <button id="song4" type="button" className='button' onClick={() => {setVideo(4)}}>Update</button>
             </Col>
           </Row>
           <h1 className='songs-title'> Made with ♥ by Bob...</h1>

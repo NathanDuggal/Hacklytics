@@ -83,7 +83,7 @@ def getSongs():
     
     dist_list.sort(key=lambda x: x[1])
     indexes = [e[0] for e in dist_list[:5]]
-    return (str([songs_file[index+1].split(',')[1] for index in indexes]))
+    return ([songs_file[index+1].split(',')[1] for index in indexes])
 
 @app.route("/getWeather")
 def giveWeatherData():
@@ -125,14 +125,17 @@ def getYoutubeSearch():
     
     videos = []
     
-    print(videos)
+    print(video_names)
     
     for name in video_names :
+        print(name)
         videosSearch = VideosSearch(name + " song", limit = 2)
         videos.append(videosSearch.result()['result'][0]['id'])
     
-    response = flask.jsonify({'videos': videos})
+    response = flask.jsonify({'videos': videos}, {'names': video_names})
     response.headers.add('Access-Control-Allow-Origin', '*')
+
+    print(response)
     
     return response
 
