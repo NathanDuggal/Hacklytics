@@ -1,5 +1,5 @@
 import logo from './logo.svg';
-import weatherIcon from './invertThis.png'
+import weatherIcon from './PartialClouds.png'
 import './App.css';
 import * as React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -8,6 +8,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import DateTime from './DateTime';
 import react, { useEffect, useState } from "react";
+import { cardActionsClasses } from '@mui/material';
 
 // import Grid from './Grid';
 // import Grid from '@mui/material/Grid';
@@ -40,6 +41,8 @@ import react, { useEffect, useState } from "react";
 //   return <div id={props.index} className='item' onClick={onClick}>{props.index}</div>
 // }
 
+// console.log("API" + process.env.YOUTUBE_API_KEY);
+
 export default function App(){
   const [latitude, setLatitude] = React.useState('');
   const [longitude, setLongitude] = React.useState('');
@@ -52,16 +55,19 @@ export default function App(){
 
   const [weatherType, setWeatherType] = useState("TBD");
   const [temp, setTemp] = useState("default");
+  // const [videos, setVideos] = useState("TBD")
+  var videos = [];
 
-  const getWeather = () => {
+  const updateData = () => {
+    console.log("Fetching");
     fetch("http://127.0.0.1:8004/getWeather")
       .then((response) => response.json())
       .then((data) => {
-        const jsonData = JSON.parse(data.data);
-        console.log(jsonData);
-        setWeatherType(jsonData.conditions[0]);
+        const weatherData = JSON.parse(data.weather);
+        console.log(data);
+        setWeatherType(weatherData.conditions[0]);
         // setTemp(jsonData.temp[0]);
-        const temp = Number(jsonData.temp[0]);
+        // const temp = Number(jsonData.temp[0]);
         
         if (temp < 20) {
           root.style.setProperty('--color1','#0fd7ff');
@@ -83,7 +89,27 @@ export default function App(){
       .catch(() => {
         setWeatherType("ERROR");
       });
+
+    fetch("http://127.0.0.1:8004/getVideos")
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data.videos);
+        const videoData = data.videos;
+        // setVideos(videoData);
+        videos = videoData;
+        console.log(videos);
+      })
+      .catch(() => {
+        setWeatherType("ERROR");
+      });
   };
+
+  const setVideo = () => {
+    console.log("here")
+    // console.log(this.id);
+    // console.log(val);
+    // console.log(videos[val]);
+  }
   
   var root = document.querySelector(':root');
   
@@ -107,23 +133,22 @@ export default function App(){
         </div> */}
         <Container className='app-grid'>
           <Row className='grid-row justify-content-md-center'>
-            <Col md={2}>
+            <Col md={1}>
               <div className='condition-container'>
                 <div className='weather'>
                   <p className='condition-title' id='weatherid'>Weather</p>
                   <img src={weatherIcon} id='weatherOnly'className='weather'/>
                 </div>
                 <p id='weatherType'>{weatherType}</p>
-                
               </div>
             </Col>
-            <Col md={2}>
+            <Col md={1}>
               <div className='condition-container'>
                 <p className='condition-title'>Time</p>
                 <DateTime className='time'></DateTime>
               </div>
             </Col>
-            <Col md={2}>
+            <Col md={1}>
                <div className='condition-container'>
                 <p className='condition-title'>Location</p>
                 <p className='place'>Atlanta</p>
@@ -131,14 +156,24 @@ export default function App(){
                </div>
             </Col>
             <Col md={2}>
-              <button type="button" id='button' onClick={getWeather}>Update</button>
+              <button type="button" className='button' onClick={updateData}>Update</button>
             </Col>
           </Row>
-          {/* <div className='label'> */}
-            <h1 className='songs-title'>Some songs you might like...</h1>
-            <div className='current-song'>
-              <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PL4jEyp32wP5sa2Y_rotcEZnVjCTuqqKwE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            </div>
+          <Row>
+            <Col className='playlist-preview' md={5}>
+              <h1 className='songs-title'>Some songs you might like...</h1>
+              <div className='current-song'>
+                <iframe id="video-window" width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PL4jEyp32wP5sa2Y_rotcEZnVjCTuqqKwE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              </div>
+            </Col>
+            <Col className='playlist-selector' md={4}>
+              <button id='0'type="button" className='button' onClick={setVideo}>Update</button>
+              <button type="button" className='button' onClick={setVideo}>Update</button>
+              <button type="button" className='button' onClick={setVideo}>Update</button>
+              <button type="button" className='button' onClick={setVideo}>Update</button>
+              <button type="button" className='button' onClick={setVideo}>Update</button>
+            </Col>
+          </Row>
         </Container>
       </header>
     </div>

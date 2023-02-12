@@ -170,6 +170,15 @@ html {
   position: relative;
   left: 10px;
   width: 50%;
+  display: flex;
+  gap: 3px;
+  object-fit: cover;
+  position: relative;
+  right: 0px;
+  text-align: left; 
+  object-fit: cover;
+  width: 50%;
+  height: 50%;
 }
 
 .time {
@@ -186,13 +195,14 @@ body {
   background-color: #505050;
 }
 
-#button {
-  top: 75px;
+.button {
   margin-left: auto;
   margin-right:auto;
   position: relative;
   display: inline-block;
   margin: 0 auto;
+  position: relative;
+  top: 20px;
   /* bottom: 50px; */
   background: transparent;
   color: #F0F0F0;
@@ -207,7 +217,7 @@ body {
   transition: all 0.4s;
 }
 
-#button:hover, button:focus {
+.button:hover, button:focus {
   background-color: white;
   color: #333333;
 }
@@ -230,12 +240,6 @@ body {
   margin-bottom: 0px;
 }
 
-.weather {
-  object-fit: cover;
-  position: relative;
-  left: 10px;
-}
-
 #weatherOnly {
   position: relative;
   left: 40px;
@@ -253,7 +257,18 @@ body {
   line-height: 40px;
 }
 
-#weatherid {
+.condition-title {
+  text-align: center;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.playlist-preview {
+  text-align: left;
+}
+
+.playlist-selector {
+  padding-top: 20px;
   position: relative;
-  left: 25px;
 }

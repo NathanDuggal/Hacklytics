@@ -2,6 +2,8 @@ import flask as flask
 from flask import Flask
 import requests as requests
 import pandas as pd
+from youtubesearchpython import VideosSearch
+# from youtubesearchpython.__future__ import VideosSearch
 
 app = Flask(__name__)
 
@@ -34,12 +36,32 @@ def giveWeatherData():
                                 12:"preciptype", 13:"snow", 14:"snowdepth", 15:"windgust", 16:"windspeed", 17:"winddir",
                                 18:"cloudcover", 19:"visibility",20:"solarradiation",21:"solarenergy",22:"uvindex",23:"severerisk",
                                 24:"sunrise",25:"sunset",26:"moonphase", 27:"conditions",28:"description",29:"icon", 30:"stations"  })
+
+    response = flask.jsonify({'weather': df_q.to_json()})
+    response.headers.add('Access-Control-Allow-Origin', '*')
     
-    print(df_q.to_json())
-    response = flask.jsonify({'data': df_q.to_json()})
+    # print(df_q.to_json())
+    
+    return response
+
+@app.route("/getVideos")
+def getYoutubeSearch():
+    # Get this from somewhere
+    video_names = ['Hello', 'Ghost Waltz']
+    
+    videos = []
+    for name in video_names :
+        videosSearch = VideosSearch(name, limit = 2)
+        videos.append(videosSearch.result()['result'][0]['id'])
+    
+    response = flask.jsonify({'videos': videos})
     response.headers.add('Access-Control-Allow-Origin', '*')
     
     return response
+
+    
+# videosSearch = VideosSearch("Hello", limit = 2)
+# print(videosSearch.result()['result'][0]['id'])
 
 # print(giveWeatherData())
 
