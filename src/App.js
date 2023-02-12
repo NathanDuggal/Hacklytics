@@ -35,16 +35,16 @@ export default function App(){
         setWeatherType(weatherData.conditions[0]);
         
         if (temp < 20) {
-          root.style.setProperty('--color1','#c2c3ff'); //blue white purple
+          root.style.setProperty('--color1','#d1c2ff'); //blue white purple
           root.style.setProperty('--color2','#c2d6ff'); //blue more green
         } else if (temp >= 20 && temp < 50) {
-          root.style.setProperty('--color1','#b2dcf7'); //blue more more green
+          root.style.setProperty('--color1','#c2d6ff'); //blue more more green
           root.style.setProperty('--color2','#b2eff7'); //blue more more more green
         } else if (temp >= 50 && temp < 70) {
           root.style.setProperty('--color1','#ccfcea'); //green
-          root.style.setProperty('--color2','#ccfcd2'); //yellow green
+          root.style.setProperty('--color2','#d1fccc'); //yellow green
         } else if(temp >= 70 && temp < 90) {
-          root.style.setProperty('--color1','#eafccc'); //yellow
+          root.style.setProperty('--color1','#fcfccc'); //yellow
           root.style.setProperty('--color2','#ffdebd'); //orange
         } else {
           root.style.setProperty('--color1','#fdc9ff'); //blue for else
