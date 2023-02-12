@@ -134,10 +134,10 @@ html {
 
 .condition-container {
   /* background-color: #2d2c2c; */
-  background: transparent;
-  box-shadow: 5px 10px 8px #b391cf;
+  background: #fcf1e8;
+  box-shadow: transparent;/*5px 10px 8px #b391cf;*/
   border-style: solid;
-  border-color: rgb(31, 31, 31);
+  border-color: #fce8ef;
   border-radius: 25px;
   min-height: 200px;
   min-width: 200px;
@@ -153,7 +153,7 @@ html {
   font-size: 25px;
   aspect-ratio: 1;
   border-style: solid;
-  border-color: white;
+  border-color: #fcf1e8;
 }
 
 .title {
@@ -218,6 +218,8 @@ body {
   -webkit-transition: all 0.4s;
   -moz-transition: all 0.4s;
   transition: all 0.4s;
+
+  box-shadow: 5px 10px 8px #b391cf;
 }
 
 .button:hover, button:focus {
@@ -280,4 +282,6 @@ body {
 .condition-title {
   text-transform: uppercase;
   letter-spacing: 2px;
+  font-weight: 800;
+  font-size: large;
 }

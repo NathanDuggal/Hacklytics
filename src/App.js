@@ -53,7 +53,7 @@ export default function App(){
     });
   }, []);
 
-  const [weatherType, setWeatherType] = useState("TBD");
+  const [weatherType, setWeatherType] = useState("T.B.D.");
   const [temp, setTemp] = useState("default");
   // const [videos, setVideos] = useState("TBD")
   var videos = [];
@@ -127,23 +127,17 @@ export default function App(){
 
 
         <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet"></link>
+        <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet"></link>
+        <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;800&display=swap" rel="stylesheet"></link>
 
-        <h1 className="title" >staryeast</h1>
+        <h1 className="title" >staryeast</h1> 
         <br></br>
-        {/* <img src={logo} className="App-logo" alt="logo" /> */}
-        {/* <div class="flex-container">
-          <div>Weather</div>
-          <div>Time</div>
-          <div>Location</div>  
-        </div> */}
         <Container className='app-grid'>
           <Row className='grid-row justify-content-md-center'>
             <Col md={1}>
               <div className='condition-container'>
-                <div className='weather'>
                   <p className='condition-title' id='weatherid'>Weather</p>
                   <img src={weatherIcon} id='weatherOnly'className='weather'/>
-                </div>
                 <p id='weatherType'>{weatherType}</p>
               </div>
             </Col>
@@ -156,7 +150,7 @@ export default function App(){
             <Col md={1}>
                <div className='condition-container'>
                 <p className='condition-title'>Location</p>
-                <p className='place'>Atlanta</p>
+                <p className='place'>Atlanta,</p>
                 <p className='place'>GA</p>
                </div>
             </Col>
@@ -166,7 +160,6 @@ export default function App(){
           </Row>
           <Row>
             <Col className='playlist-preview' md={5}>
-              <h1 className='songs-title'>Some songs you might like...</h1>
               <div className='current-song'>
                 <iframe id="video-window" width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PL4jEyp32wP5sa2Y_rotcEZnVjCTuqqKwE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
               </div>
@@ -179,6 +172,7 @@ export default function App(){
               <button type="button" className='button' onClick={setVideo}>Update</button>
             </Col>
           </Row>
+          <h1 className='songs-title'> Made with ♥ by Bob...</h1>
         </Container>
       </header>
     </div>
