@@ -25,12 +25,12 @@ export default function App(){
   const [weatherType, setWeatherType] = useState("T.B.D.");
   const [temp, setTemp] = useState("default");
 
-  const updateData = () => {
+  const updateData = async () => {
     console.log("Fetching");
-    fetch("http://127.0.0.1:8004/getWeather")
+    await fetch("http://127.0.0.1:8004/getWeather")
       .then((response) => response.json())
       .then((data) => {
-        const weatherData = JSON.parse(data.weather);
+        const weatherData = JSON.parse(data[0].weather);
         console.log(data);
         setWeatherType(weatherData.conditions[0]);
         
@@ -50,17 +50,10 @@ export default function App(){
           root.style.setProperty('--color1','#fdc9ff'); //blue for else
           root.style.setProperty('--color2','#cbc9ff'); 
         }
-      })
-      .catch(() => {
-        setWeatherType("ERROR");
-      });
 
-    fetch("http://127.0.0.1:8004/getVideos")
-      .then((response) => response.json())
-      .then((data) => {
         console.log(data.names);
-        const videoData = data[0].videos;
-        const nameData = data[1].names;
+        const videoData = data[1].videos;
+        const nameData = data[2].names;
 
         for(var i=0; i < nameData.length; i++) {
           console.log(nameData[i]);
@@ -68,11 +61,18 @@ export default function App(){
         }
 
         videos = videoData;
-        console.log(videos);
       })
       .catch(() => {
         setWeatherType("ERROR");
       });
+      // .then(() => fetch("http://127.0.0.1:8004/getVideos")
+      // .then((response) => response.json())
+      // .then((data) => {
+      //   console.log(videos);
+      // })
+      // .catch(() => {
+      //   setWeatherType("ERROR");
+      // }));
   };
 
   const setVideo = (val) => {
