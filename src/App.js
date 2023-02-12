@@ -1,4 +1,5 @@
 import logo from './logo.svg';
+import weatherIcon from './invertThis.png'
 import './App.css';
 import * as React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -6,6 +7,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import DateTime from './DateTime';
+import react, { useEffect, useState } from "react";
 // import Grid from './Grid';
 // import Grid from '@mui/material/Grid';
 // import { styled } from '@mui/material/styles';
@@ -41,16 +43,8 @@ export default function App(){
   var aroot = document.querySelector(':root');
   var rootStyles = getComputedStyle(aroot);
   var color = rootStyles.getPropertyValue('--color');
-  aroot.style.setProperty('--color', 'red');
+  aroot.style.setProperty('--color', '#5b616c');
   
-  const [latitude, setLatitude] = React.useState('');
-  const [longitude, setLongitude] = React.useState('');
-  React.useEffect(() => {
-    navigator.geolocation.getCurrentPosition((position) => {
-      setLatitude(position.coords.latitude);
-      setLongitude(position.coords.longitude);
-    });
-  }, []);
   return (
     <div className="App">
       {/* <header>
@@ -58,10 +52,7 @@ export default function App(){
       </header> */}
       <header className="App-header">
         <h1 className="title">Spotify Playlist Maker</h1>
-        <img src={logo} className="App-logo" alt="logo" />
-        <p className='Text'>
-          Sunny Days, Starry Nights
-        </p>
+        {/* <img src={logo} className="App-logo" alt="logo" /> */}
         {/* <div class="flex-container">
           <div>Weather</div>
           <div>Time</div>
@@ -69,19 +60,32 @@ export default function App(){
         </div> */}
         <Container className='app-grid'>
           <Row className='grid-row'>
-            <Col md={4}>
-              <div className='condition-container'>Weather</div>
-            </Col>
-            <Col md={4}>
+            <Col md={2}>
               <div className='condition-container'>
-                <DateTime></DateTime>
+                <img src={weatherIcon} className="weather"/>
               </div>
             </Col>
-            <Col md={4}>
-              <div className='condition-container'>Location</div>
+            <Col md={2}>
+              <div className='condition-container'>
+                <p>Time</p>
+                <DateTime className='time'></DateTime>
+              </div>
+            </Col>
+            <Col md={2}>
+               <div className='condition-container'>
+                <p>Location</p>
+                <p className='place'>Atlanta, Ga</p>
+               </div>
             </Col>
           </Row>
           <h1>Some songs you might like...</h1>
+          <div className='song-label'>
+            <p>Current Song</p>
+            <p>Playlist</p>
+          </div>
+          <div className='current-song'>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PL4jEyp32wP5sa2Y_rotcEZnVjCTuqqKwE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
           <Row className='grid-row'>
             <Col md={2}>
               <div className="ratio ratio-16x9">
@@ -124,6 +128,9 @@ export default function App(){
           </Box>
         </div> */}
       </header>
+      <body>
+        <div className = 'body'></div>
+      </body>
     </div>
   );
 }

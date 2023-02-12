@@ -1,3 +1,7 @@
+html {
+  font-size:10px;
+}
+
 .App {
   text-align: center;
 }
@@ -16,19 +20,13 @@
 }
 
 .App-header {
-
-  background-image: url('logo.svg');
-  background-repeat: no-repeat;
-  /* filter: blur(5px); */
-
   animation-name: backgroundColorPalette;
   animation-duration: 5s;
   animation-iteration-count: infinite;
   animation-direction: alternate;
-
   position: relative;
   text-align: center;
-  color: white;
+  color:white;
   /* background-color: #282c34; */
   min-height: 100vh;
   display: flex;
@@ -41,10 +39,6 @@
 
 :root {
   --color: blue; 
-}
-
-.App-header > * {
-  filter: none;
 }
 
 @keyframes backgroundColorPalette {
@@ -112,7 +106,10 @@
 }
 
 .app-grid {
+  margin: 15px;
   text-align: left;
+  position: relative;
+  top: 100px;
 }
 
 .app-grid > * {
@@ -121,6 +118,7 @@
 }
 
 .grid-row {
+  position: relative;
   display: flex;
   flex-wrap: nowrap;
   /* background-color: rgb(92, 166, 240); */
@@ -129,22 +127,59 @@
 }
 
 .grid-row > * {
-  margin: 10px 0;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .condition-container {
   background-color: #000000;
-  min-height: 5vh;
-  min-width: 40vh;
+  border-radius: 25px;
+  min-height: 10vh;
+  min-width: 10vh;
+  max-width: 30vh;
+  max-height: 30vh;
+  margin-left: auto;
+  margin-right: auto;
   /* margin: 5px; */
   text-align: center;
   line-height: 75px;
-  font-size: 30px;
-  aspectRatio: 1;
+  font-size: 4vh;
+  aspect-ratio: 1;
 }
 
 .title {
-  font-size: 25px;
+  font-family: Helvetica, sans-serif;
+  font-size: 35px;
   position:absolute;
   top: 30px;
+}
+
+.weather {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.time {
+  position: absolute;
+}
+
+.place {
+  font-size: 1em;
+  text-align: center;
+}
+
+body {
+  background-color: #505050;
+}
+
+.current-song {
+  position: relative;
+  bottom: 75px;
+}
+
+.song-label {
+  display: flex;
+  gap: 450px;
 }
