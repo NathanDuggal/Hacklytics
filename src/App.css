@@ -2,6 +2,7 @@ html {
   font-size:10px;
 }
 
+
 .App {
   text-align: center;
 }
@@ -133,9 +134,11 @@ html {
 }
 
 .condition-container {
-  background-color: #000000;
+  /* background-color: #2d2c2c; */
+  background: transparent;
+  box-shadow: 5px 10px 8px #000000;
   border-style: solid;
-  border-color: white;
+  border-color: rgb(31, 31, 31);
   border-radius: 25px;
   min-height: 200px;
   min-width: 200px;
@@ -148,7 +151,7 @@ html {
   /* margin: 5px; */
   text-align: center;
   line-height: 75px;
-  font-size: 4vh;
+  font-size: 25px;;
   aspect-ratio: 1;
   border-style: solid;
   border-color: white;
@@ -223,8 +226,21 @@ body {
 
 .weather {
   display: flex;
+  gap: 3px;
+  object-fit: cover;
+  position: relative;
+  right: 5px;
+}
+
+#weatherOnly {
+  position: relative;
+  bottom: 8px;
 }
 
 #weatherType {
-  line-height: 40px;
+  line-height: 35px;
+}
+
+.body {
+  background-color: #000000;
 }

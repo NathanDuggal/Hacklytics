@@ -8,6 +8,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import DateTime from './DateTime';
 import react, { useEffect, useState } from "react";
+
 // import Grid from './Grid';
 // import Grid from '@mui/material/Grid';
 // import { styled } from '@mui/material/styles';
@@ -88,7 +89,7 @@ export default function App(){
               <div className='condition-container'>
                 <div className='weather'>
                   <p>Weather</p>
-                  <img src={weatherIcon} className="weather"/>
+                  <img src={weatherIcon} id='weatherOnly' className="weather"/>
                 </div>
                 <p id='weatherType'>{weatherType}</p>
                 
@@ -156,7 +157,7 @@ export default function App(){
           </Box>
         </div> */}
       </header>
-      <body>
+      <body className='body'>
         <div className = 'body'></div>
       </body>
     </div>
