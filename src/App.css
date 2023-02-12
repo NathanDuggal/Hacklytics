@@ -115,6 +115,7 @@ html {
 .app-grid > * {
   display: block;
   margin: 100px 0;
+  justify-content: center;
 }
 
 .grid-row {
@@ -133,11 +134,15 @@ html {
 
 .condition-container {
   background-color: #000000;
+  border-style: solid;
+  border-color: white;
   border-radius: 25px;
   min-height: 10vh;
   min-width: 10vh;
   max-width: 30vh;
   max-height: 30vh;
+  /* margin-top: 0;
+  margin-bottom: 0; */
   margin-left: auto;
   margin-right: auto;
   /* margin: 5px; */
