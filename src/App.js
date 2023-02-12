@@ -120,6 +120,7 @@ export default function App(){
       </header> */}
       
       <header className="App-header">
+        <script src="scripts.js"></script>
         <link rel="preconnect" href="https://fonts.googleapis.com"></link>
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin></link>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet"></link>
@@ -130,7 +131,7 @@ export default function App(){
         <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet"></link>
         <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;800&display=swap" rel="stylesheet"></link>
 
-        <h1 className="title" >staryeast</h1> 
+        <h1 className="title" left-margin="70px" >staryeast 🎵  </h1> 
         <br></br>
         <Container className='app-grid'>
           <Row className='grid-row justify-content-md-center'>
@@ -165,11 +166,13 @@ export default function App(){
               </div>
             </Col>
             <Col className='playlist-selector' md={4}>
-              <button id='0'type="button" className='button' onClick={setVideo}>Update</button>
+              {/* <button id='0'type="button" className='button' onClick={setVideo}>Update</button>
               <button type="button" className='button' onClick={setVideo}>Update</button>
               <button type="button" className='button' onClick={setVideo}>Update</button>
               <button type="button" className='button' onClick={setVideo}>Update</button>
-              <button type="button" className='button' onClick={setVideo}>Update</button>
+              <button type="button" className='button' onClick={setVideo}>Update</button> */}
+              
+              
             </Col>
           </Row>
           <h1 className='songs-title'> Made with ♥ by Bob...</h1>
