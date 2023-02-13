@@ -6,7 +6,7 @@ import random
 import numpy as np
 from tensorflow import keras
 from youtubesearchpython import VideosSearch
-# from youtubesearchpython.__future__ import VideosSearch
+
 
 # weather_dict = {}
 
@@ -18,6 +18,7 @@ app = Flask(__name__)
 def hello_world():
     return "<p>Hello, World!</p>"
 
+
 maximum = np.array([9.770e+01, 7.710e+01, 8.580e+01, 1.063e+02, 7.710e+01, 9.210e+01,
        7.360e+01, 9.740e+01, 1.834e+00, 1.000e+02, 8.750e+01, 6.000e-01,
        5.000e-01, 5.170e+01, 2.640e+01, 3.571e+02, 1.000e+02, 9.900e+00,
@@ -25,12 +26,15 @@ maximum = np.array([9.770e+01, 7.710e+01, 8.580e+01, 1.063e+02, 7.710e+01, 9.210
 minimum = np.array([25.7,  7.9, 16.1, 15. , -8.8,  3.1,  2.4, 28.3,  0. ,  0. ,  0. ,
         0. ,  0. ,  4.7,  4.6,  0.5,  0. ,  2.1, 16. ,  1.4,  1. ,  0. ])
 
+
+
 def normalize(values):
     return (values - minimum)/(maximum - minimum)
 
+
 def getSongs(weather_dict):
     songs_file= 0 #raw data from the tracks
-    with open("tracks_features.csv",'r',encoding="utf-8") as songs:
+    with open("tracks_features.csv",'r') as songs:
         songs_file = songs.read()
         
     #find a random 10000 songs out of the 1 million song dataset (bc otherwise too slow)
@@ -66,8 +70,6 @@ def getSongs(weather_dict):
     b = my_list
     #b = list(map(float, "90.4,73.2,79.7,96.3,73.2,81.5,71.7,77.9,0.08,100.0,8.33,0.0,0.0,29.9,11.8,115.6,39.1,9.9,513.6,44.6,5.0,0.25".split(",")))
     #b = np.array(list(b)) #turning the data we're trying to match (b) into np vector
-    # inference_func = model.signatures['serving_default']
-    # inference_func(np.array([np.array(normalize(b))]))
     b = model.predict(np.array([np.array(normalize(b))])) 
 
     dist_list = []
@@ -85,7 +87,8 @@ def getSongs(weather_dict):
     
     dist_list.sort(key=lambda x: x[1])
     indexes = [e[0] for e in dist_list[:5]]
-    return ([songs_file[index+1].split(',')[1] for index in indexes])
+    return (str([songs_file[index+1].split(',')[1] for index in indexes]))
+
 
 @app.route("/getWeather")
 def giveWeatherData():
@@ -116,12 +119,8 @@ def giveWeatherData():
     video_names = getSongs(weather_dict)
     
     videos = []
-    
-    print(video_names)
-    
     for name in video_names :
-        print(name)
-        videosSearch = VideosSearch(name + " song", limit = 2)
+        videosSearch = VideosSearch(name, limit = 2)
         videos.append(videosSearch.result()['result'][0]['id'])
 
     response = flask.jsonify({'weather': df_q.to_json()}, {'videos': videos}, {'names': video_names})

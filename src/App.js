@@ -24,7 +24,7 @@ export default function App(){
 
   const [weatherType, setWeatherType] = useState("T.B.D.");
   const [temp, setTemp] = useState("default");
-
+  
   const updateData = async () => {
     console.log("Fetching");
     await fetch("http://127.0.0.1:8004/getWeather")
