@@ -243,7 +243,7 @@ body {
   /* bottom: 50px; */
   background: transparent;
   color: rgb(98, 14, 53);
-  border: 2px solid #F0F0F0;
+  border: 2px solid #fcf1e8;
   font-size: 15px;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -261,7 +261,6 @@ body {
 .button:hover, button:focus {
   background-color: white;
   color: #333333;
-  
 }
 
 .label {
@@ -317,6 +316,7 @@ body {
   position: relative;
   margin-left: 30px;
   margin-right: 70px;
+  margin-top: -10px;
 }
 
 .condition-title {

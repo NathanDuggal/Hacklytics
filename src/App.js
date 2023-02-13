@@ -33,17 +33,19 @@ export default function App(){
         const weatherData = JSON.parse(data[0].weather);
         console.log(data);
         setWeatherType(weatherData.conditions[0]);
+
+        const temp = weatherData.temp[0];
         
-        if (temp < 20) {
+        if (temp < 40) {
           root.style.setProperty('--color1','#c2c3ff'); //blue white purple
           root.style.setProperty('--color2','#c2d6ff'); //blue more green
-        } else if (temp >= 20 && temp < 50) {
+        } else if (temp >= 40 && temp < 50) {
           root.style.setProperty('--color1','#b2dcf7'); //blue more more green
           root.style.setProperty('--color2','#b2eff7'); //blue more more more green
-        } else if (temp >= 50 && temp < 70) {
+        } else if (temp >= 50 && temp < 60) {
           root.style.setProperty('--color1','#ccfcea'); //green
           root.style.setProperty('--color2','#ccfcd2'); //yellow green
-        } else if(temp >= 70 && temp < 90) {
+        } else if(temp >= 60 && temp < 80) {
           root.style.setProperty('--color1','#eafccc'); //yellow
           root.style.setProperty('--color2','#ffdebd'); //orange
         } else {
@@ -61,6 +63,8 @@ export default function App(){
         }
 
         videos = videoData;
+
+        setVideo(0);
       })
       .catch(() => {
         setWeatherType("ERROR");
