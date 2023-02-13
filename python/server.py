@@ -7,9 +7,10 @@ import numpy as np
 from tensorflow import keras
 from youtubesearchpython import VideosSearch
 
-model = keras.models.load_model("awful_yeast")
 
-# from youtubesearchpython.__future__ import VideosSearch
+# weather_dict = {}
+
+model = keras.models.load_model("awful_yeast") #tf.saved_model.load("awful_yeast") 
 
 app = Flask(__name__)
 
@@ -31,9 +32,7 @@ def normalize(values):
     return (values - minimum)/(maximum - minimum)
 
 
-
-@app.route("/testing")
-def test():
+def getSongs(weather_dict):
     songs_file= 0 #raw data from the tracks
     with open("tracks_features.csv",'r') as songs:
         songs_file = songs.read()
@@ -62,11 +61,11 @@ def test():
     jsonData = response.json()
 
     key_list = "tempmax,tempmin,temp,feelslikemax,feelslikemin,feelslike,dew,humidity,precip,precipprob,precipcover,snow,snowdepth,windgust,windspeed,winddir,cloudcover,visibility,solarradiation,solarenergy,uvindex,moonphase".split(",")
-    my_dict = jsonData["days"][0] #get value of the key called "days". Get 0th value of all the days in the day value field (current day)
+    # weather_dict = jsonData["days"][0] #get value of the key called "days". Get 0th value of all the days in the day value field (current day)
     my_list = []
 
     for key in key_list:
-        my_list.append(my_dict[key])
+        my_list.append(weather_dict[key])
 
     b = my_list
     #b = list(map(float, "90.4,73.2,79.7,96.3,73.2,81.5,71.7,77.9,0.08,100.0,8.33,0.0,0.0,29.9,11.8,115.6,39.1,9.9,513.6,44.6,5.0,0.25".split(",")))
@@ -103,11 +102,11 @@ def giveWeatherData():
     import pandas as pd #pandas imported with alias!
 
     key_list = "datetime,tempmax,tempmin,temp,feelslikemax,feelslikemin,feelslike,dew,humidity,precip,precipprob,precipcover,preciptype,snow,snowdepth,windgust,windspeed,winddir,cloudcover,visibility,solarradiation,solarenergy,uvindex,severerisk,sunrise,sunset,moonphase,conditions,description,icon,stations".split(",")
-    my_dict = jsonData["days"][0] #get value of the key called "days". Get 0th value of all the days in the day value field (current day)
+    weather_dict = random.choice(jsonData["days"]) #get value of the key called "days". Get 0th value of all the days in the day value field (current day)
     my_list = []
 
     for key in key_list:
-        my_list.append(my_dict[key])
+        my_list.append(weather_dict[key])
 
     df_q = pd.DataFrame (my_list) #data frame for the query
     df_q = df_q.T #transposed
@@ -116,26 +115,18 @@ def giveWeatherData():
                                 12:"preciptype", 13:"snow", 14:"snowdepth", 15:"windgust", 16:"windspeed", 17:"winddir",
                                 18:"cloudcover", 19:"visibility",20:"solarradiation",21:"solarenergy",22:"uvindex",23:"severerisk",
                                 24:"sunrise",25:"sunset",26:"moonphase", 27:"conditions",28:"description",29:"icon", 30:"stations"  })
-
-    response = flask.jsonify({'weather': df_q.to_json()})
-    response.headers.add('Access-Control-Allow-Origin', '*')
     
-    # print(df_q.to_json())
-    
-    return response
-
-@app.route("/getVideos")
-def getYoutubeSearch():
-    # Get this from somewhere
-    video_names = ['Hello', 'Ghost Waltz']
+    video_names = getSongs(weather_dict)
     
     videos = []
     for name in video_names :
         videosSearch = VideosSearch(name, limit = 2)
         videos.append(videosSearch.result()['result'][0]['id'])
-    
-    response = flask.jsonify({'videos': videos})
+
+    response = flask.jsonify({'weather': df_q.to_json()}, {'videos': videos}, {'names': video_names})
     response.headers.add('Access-Control-Allow-Origin', '*')
+    
+    # print(df_q.to_json())
     
     return response
 

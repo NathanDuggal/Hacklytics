@@ -39,8 +39,8 @@ html {
 }
 
 :root {
-  --color1: #fdc9ff; 
-  --color2: #cbc9ff;
+  --color1: #c2ccfc; 
+  --color2: #c2ddfc;
 }
 
 @keyframes backgroundColorPalette {
@@ -150,28 +150,38 @@ html {
   /* margin: 5px; */
   text-align: center;
   line-height: 75px;
-  font-size: 25px;
+  font-size: 24px;
   aspect-ratio: 1;
   border-style: solid;
   border-color: #fcf1e8;
 }
 
+.condition-title-weather {
+  font-size: 17px !important;
+  margin-left: 10px !important;
+  margin-right: 10px !important;
+  margin-bottom: 10px !important;
+}
+
+
+
 .title {
   font-family: 'Nanum Gothic', sans-serif;
-  font-size: 60px;
+  font-size: 30px;
   position:absolute;
   top: 30px;
   text-align: left !important;
   align-items: left !important;
+  font-weight: 700;
   margin-bottom: 50px;
+  margin-left: 70px;
 }
 
 .weather {
   letter-spacing: 2px;
   text-transform: uppercase;
   position: relative;
-  left: 10px;
-  width: 50%;
+  left: 50px;
   display: flex;
   gap: 3px;
   object-fit: cover;
@@ -179,8 +189,11 @@ html {
   right: 0px;
   text-align: left; 
   object-fit: cover;
-  width: 50%;
-  height: 50%;
+  width: 80px;
+  height: 80px;
+  margin-left: 22px;
+  margin-bottom: 12px;
+  margin-top: 24px;
 }
 
 .time {
@@ -197,6 +210,28 @@ body {
   background-color: #505050;
 }
 
+.menuButton{ 
+  font-size: large !important;
+  font-weight: 800 !important;
+  width: 250px !important;
+  border-radius: 200px !important;
+  color:white !important;
+  background-color: #ae84bd !important;
+  border: none !important;
+  margin-top: 50px !important;
+  position: relative !important;
+  box-shadow: #fce8ef !important;
+  margin-left: 0px !important;
+}
+
+.menuButton:hover, button:focus {
+  box-shadow: white !important;
+  color:#b391cf !important;
+  background-color: #fcf1e8 !important;
+  transition: 0.3s;
+  
+}
+
 .button {
   margin-left: auto;
   margin-right:auto;
@@ -204,11 +239,11 @@ body {
   display: inline-block;
   margin: 0 auto;
   position: relative;
-  top: 20px;
+  top: 0px;
   /* bottom: 50px; */
   background: transparent;
   color: rgb(98, 14, 53);
-  border: 2px solid #F0F0F0;
+  border: 2px solid #fcf1e8;
   font-size: 15px;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -218,6 +253,7 @@ body {
   -webkit-transition: all 0.4s;
   -moz-transition: all 0.4s;
   transition: all 0.4s;
+  width: 550px;
 
   box-shadow: 5px 10px 8px #b391cf;
 }
@@ -271,12 +307,16 @@ body {
 
 .playlist-preview {
   text-align: left;
+  margin-left:0px;
+  margin-right:40px;
 }
 
 .playlist-selector {
   padding-top: 20px;
   position: relative;
-  left: 25px;
+  margin-left: 30px;
+  margin-right: 70px;
+  margin-top: -10px;
 }
 
 .condition-title {
